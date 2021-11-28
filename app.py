@@ -1,6 +1,7 @@
 import pygal
 import requests
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 from pygal.style import LightenStyle, LightColorizedStyle
 
 app = FastAPI()
@@ -37,4 +38,4 @@ def popular(q: str):
     chart.title = "Most-Starred Python Projects on GitHub"
     chart.x_labels = names
     chart.add('', plot_dicts)
-    return chart.render()
+    return HTMLResponse(chart.render())
