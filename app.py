@@ -7,11 +7,7 @@ app = FastAPI()
 
 
 @app.get("/popular")
-def popular():
-    return "index"
-
-
-def temp(q):
+def popular(q: str):
     res = requests.get(f"https://api.github.com/search/repositories?q=language:{q}&sort=stars")
     if res.status_code != 200:
         return f"{res.status_code} {res.reason} {res.text}"
@@ -41,4 +37,4 @@ def temp(q):
     chart.title = "Most-Starred Python Projects on GitHub"
     chart.x_labels = names
     chart.add('', plot_dicts)
-    chart.render_to_file('python_repos.svg')
+    return chart.render()
