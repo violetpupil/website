@@ -3,6 +3,6 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-@app.get("/")
-def index():
+@app.get("/popular")
+def popular():
     return "index"
