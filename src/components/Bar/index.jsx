@@ -2,10 +2,7 @@ import React, { Component } from 'react'
 
 export default class Bar extends Component {
   render() {
-    return (
-      <div>
-
-      </div>
-    )
+    const { bar } = this.props
+    return <div dangerouslySetInnerHTML={{ __html: bar }} />
   }
 }
