@@ -1,23 +1,7 @@
-import React, { Component } from 'react'
-import Bar from "./components/Bar"
-import Search from "./components/Search"
+import React from 'react'
 
-export default class App extends Component {
-  state = {
-    bar: "",
-    isFirst: true,
-    isLoading: false,
-    err: ""
-  }
-
-  updateAppState = state => this.setState(state)
-
+export default class App extends React.Component {
   render() {
-    return (
-      <div id="app">
-        <Search updateAppState={this.updateAppState} />
-        <Bar {...this.state} />
-      </div>
-    )
+    return <h1>Hello, world!</h1>
   }
 }
