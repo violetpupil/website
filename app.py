@@ -1,10 +1,15 @@
 import pygal
 import requests
 from fastapi import FastAPI
-from fastapi.responses import Response, JSONResponse
+from fastapi.responses import Response, JSONResponse, FileResponse
 from pygal.style import LightColorizedStyle, LightenStyle
 
 app = FastAPI()
+
+
+@app.get("/favicon.ico", include_in_schema=False)
+def favicon():
+    return FileResponse("favicon.ico")
 
 
 @app.get("/popular")
