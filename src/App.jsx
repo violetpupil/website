@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Search from "./components/Search"
 import Bar from "./components/Bar"
+import Search from "./components/Search"
 
 export default class App extends Component {
   state = {
