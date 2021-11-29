@@ -1,7 +1,7 @@
 import pygal
 import requests
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import Response, JSONResponse
 from pygal.style import LightColorizedStyle, LightenStyle
 
 app = FastAPI()
@@ -42,7 +42,7 @@ def popular(q: str):
             major_label_font_size=18,
         ),
     )
-    chart.title = "Most-Starred Python Projects on GitHub"
+    chart.title = "Most-Starred Projects on GitHub"
     chart.x_labels = names
     chart.add("", plot_dicts)
-    return HTMLResponse(chart.render())
+    return Response(chart.render(), media_type="image/svg+xml")
