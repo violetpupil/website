@@ -4,7 +4,10 @@ import Bar from "./components/Bar"
 
 export default class App extends Component {
   state = {
-    bar: ""
+    bar: "",
+    isFirst: true,
+    isLoading: false,
+    err: ""
   }
 
   updateAppState = state => this.setState(state)
