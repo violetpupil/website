@@ -1,8 +1,8 @@
 import pygal
 import requests
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
-from pygal.style import LightenStyle, LightColorizedStyle
+from fastapi.responses import HTMLResponse, JSONResponse
+from pygal.style import LightColorizedStyle, LightenStyle
 
 app = FastAPI()
 
@@ -13,7 +13,7 @@ def popular(q: str):
         f"https://api.github.com/search/repositories?q=language:{q}&sort=stars"
     )
     if res.status_code != 200:
-        return f"{res.status_code} {res.reason} {res.text}"
+        return JSONResponse(res.json(), status_code=res.status_code)
 
     names, plot_dicts = [], []
     for item in res.json().get("items"):
