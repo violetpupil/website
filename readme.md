@@ -4,5 +4,5 @@ docker push instafever/backend
 ```
 
 ```
-docker run -dp 8000:8000 instafever/backend
+docker run -dp 8000:8000 --name backend_prod instafever/backend
 ```
